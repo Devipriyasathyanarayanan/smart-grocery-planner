@@ -7,10 +7,10 @@
 // page with ?api=http://your-backend:4000/api, or just edit the default
 // below once you know your backend's address.
 const params = new URLSearchParams(window.location.search);
-// const API = params.get('api') || window.API_BASE || 'http://localhost:4000/api';
+const API = params.get('api') || window.API_BASE || 'http://localhost:4000/api';
 
 
-const API = params.get('api') || window.API_BASE || 'http://planner-backend/api'; //   /api/   http://planner-backend:4000/ingredients
+// const API = params.get('api') || window.API_BASE || 'http://planner-backend/api'; //   /api/   http://planner-backend:4000/ingredients
 
 // ---------- Tab switching ----------
 document.querySelectorAll('.tab-btn').forEach((btn) => {

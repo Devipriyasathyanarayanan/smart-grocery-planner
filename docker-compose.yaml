@@ -6,7 +6,8 @@ services:
       - grocery
     ports:
       - "8081:80"
-    
+    depends_on:
+      - backend
     
   backend:
     build: ./backend
@@ -33,9 +34,10 @@ services:
     ports:
       - "5432:5432"
     restart: unless-stopped
-    
-
-    
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root123
+      POSTGRES_DB: grocery_planner
     volumes:
       - my-datavolume:/var/lib/postgresql/data
 
