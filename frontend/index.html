@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Smart Grocery List & Recipe Planner</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <h1>🛒 Smart Grocery Planner</h1>
+      <nav class="tabs">
+        <button class="tab-btn active" data-tab="list">Shopping List</button>
+        <button class="tab-btn" data-tab="recipes">Recipes</button>
+      </nav>
+    </header>
+
+    <main>
+      <!-- SHOPPING LIST TAB -->
+      <section id="tab-list" class="tab-panel active">
+        <div class="panel-header">
+          <h2>Shopping List</h2>
+          <div class="panel-actions">
+            <button id="clearCheckedBtn" class="btn btn-ghost">Clear checked</button>
+          </div>
+        </div>
+
+        <form id="addItemForm" class="add-item-form">
+          <select id="ingredientSelect" required></select>
+          <input id="itemQuantity" type="number" min="0" step="0.1" placeholder="Qty" value="1" required />
+          <input id="itemUnit" type="text" placeholder="unit" required />
+          <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+
+        <ul id="shoppingList" class="list"></ul>
+        <p id="listEmptyState" class="empty-state" hidden>Your list is empty. Add items above or plan a recipe.</p>
+      </section>
+
+      <!-- RECIPES TAB -->
+      <section id="tab-recipes" class="tab-panel">
+        <div class="panel-header">
+          <h2>Recipes</h2>
+        </div>
+        <div id="recipeGrid" class="recipe-grid"></div>
+      </section>
+    </main>
+
+    <!-- Recipe detail modal -->
+    <div id="recipeModal" class="modal" hidden>
+      <div class="modal-content">
+        <button id="closeModalBtn" class="modal-close">&times;</button>
+        <h2 id="modalRecipeName"></h2>
+        <p id="modalRecipeDesc" class="muted"></p>
+        <h3>Ingredients</h3>
+        <ul id="modalIngredientList" class="modal-ingredient-list"></ul>
+        <h3>Instructions</h3>
+        <p id="modalInstructions"></p>
+        <button id="planRecipeBtn" class="btn btn-primary">Add ingredients to shopping list</button>
+        <p id="planResult" class="plan-result" hidden></p>
+      </div>
+    </div>
+
+    <div id="toast" class="toast" hidden></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

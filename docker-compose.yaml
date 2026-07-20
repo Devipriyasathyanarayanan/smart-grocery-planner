@@ -1,0 +1,58 @@
+services:
+  frontend:
+    build: ./frontend
+    container_name: planner-frontend
+    networks:
+      - grocery
+    ports:
+      - "8081:80"
+    
+    
+  backend:
+    build: ./backend
+    container_name: planner-backend
+    networks:
+      - grocery
+    depends_on:
+      - database
+    ports:
+      - "4000:4000"
+    environment:
+      - PGHOST=database
+      - PGPORT=5432
+      - PGUSER=postgres
+      - PGPASSWORD=root123
+      - PGDATABASE=grocery_planner
+   
+    
+  database:
+    build: ./database
+    container_name: planner-db
+    networks:
+      - grocery
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+    
+
+    
+    volumes:
+      - my-datavolume:/var/lib/postgresql/data
+
+volumes:
+  my-datavolume:
+    driver: local
+
+networks:
+  grocery:
+    driver: bridge
+  
+
+
+
+  
+    
+
+
+    
+
