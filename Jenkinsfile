@@ -2,7 +2,7 @@
 //     agent any
 
 //     environment {
-//         APP_NAME    = "smart-grocery-planner"
+//         APP_NAME    = "my-app/test"
 //         AWS_REGION  = "us-east-1"                                   // your actual region
 //         AWS_ACCOUNT_ID = "005696749434"                              // your actual account ID
 //         ECR_REPO    = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${APP_NAME}"
